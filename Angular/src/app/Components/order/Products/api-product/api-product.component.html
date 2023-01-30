@@ -1,0 +1,103 @@
+<!-- <a class="btn btn-success" routerLink="/AddProduct">Add Product</a> -->
+
+<!-- <table class="table table-bordered">
+   <thead class="bg-dark text-center text-white">
+      <th>ID</th>
+      <th>Name</th>
+      <th> Available Quantity</th>
+      <!-- <th>needed Quantity </th> -->
+<!-- <th>Price</th>
+      <th>View Details </th>
+   </thead>
+   <tbody class="bg-danger text-white">
+      <tr *ngFor="let prod of PrdList"> -->
+<!-- <td>{{prod.ID}}</td>
+         <td>{{prod.Name}}</td>
+         <td>{{prod.Quantity}}</td> -->
+<!-- <td><input type="number" #Pcount /></td> -->
+<!-- <td>{{prod.Price}}</td>
+         <td> <a class="btn btn-primary" [routerLink]="['/Product/',prod.ID]"> View Details</a> </td> -->
+<!-- <td><a class="btn btn-primary" [routerLink]="['/edit/',prod.ID]" > Edit</a></td> -->
+<!-- <td><button class="btn btn-primary"
+               (click)="UpdatePrice(Pcount.value,prod.Price,prod.Quantity,prod.ID)">AddtoCart</button></td> -->
+<!-- <td>
+            <button class="btn btn-outline-secondary" mwlConfirmationPopover [popoverTitle]="popoverTitle"
+               [popoverMessage]="popoverMessage" placement="left" (confirm)="DeletePro(prod.ID)"
+               (cancel)="cancelClicked = true">
+               Delete
+            </button>
+
+
+         </td> -->
+<!-- </tr>
+   </tbody>
+</table> -->
+
+
+<div class="bg-light text-dark  w-100 text-white m-0" >
+ <p style="text-align: center;">  total Price ={{TotalPrice|currency:'USD':true}}</p>
+
+   <a routerLink="/cart" class="button fancy-button text-dark " style="text-align: right; margin-left: 95%;">
+      <i class="material-icons fa fa-shopping-cart text-dark"></i>{{count}}
+   </a>
+
+</div>
+
+
+
+
+
+<!-- [routerLink]="['/Edit/',prod.ID]">-->
+
+
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+
+
+
+
+
+
+
+
+<div class="container-fluid">
+
+
+   <div class="row">
+      <div class="card col-lg-3 m-5 " *ngFor="let prod of PrdList" style=" margin-bottom: 10px;">
+         <img class="card-img-top" src="http://localhost:50221/Image/{{prod.Image}}" alt="Card image cap"
+            style="width: 100%;height: 260px;">
+         <div class="card-body">
+            <h5 class="card-title">Name:{{prod.Name}}</h5>
+           
+            <h2 class="card-text"><small class="text-muted">Price:{{prod.Price|currency:'USD':true}}</small></h2>
+            <a class="btn btn-primary text-white border-success font-weight-bold w-100"
+               [routerLink]="['/Product/',prod.ID]"> View Details</a>
+            <div class="row mt-1">
+               <div class="col-6">
+
+
+
+
+                  <input class="border-success w-75" type="number" #Pcount />
+
+                  <button class="btn btn-primary text-white border-success font-weight-bold"
+                     (click)="UpdatePrice(Pcount.value,prod.Price,prod.ID)">add to cart</button>
+
+
+
+
+
+
+
+               </div>
+               <!-- <button (click)="addToCart(prod,Pcount.value)">Buy</button> -->
+            </div>
+         </div>
+      </div>
+   </div>

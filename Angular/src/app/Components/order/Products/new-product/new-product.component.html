@@ -1,0 +1,48 @@
+<!-- <button class="btn btn-primary" (click)="addProduct()">ADD</button> -->
+<!-- <hr> -->
+<!-- {{myfrm.value|json}} -->
+<!-- <hr>  -->
+<form #myfrm="ngForm" (ngSubmit)="addProduct()">
+  <div class="form-group">
+    <label for="Pname">Name:</label>
+    <input type="text" #PName="ngModel"  [class.is-valid]="PName.valid" [class.is-invalid]="PName.invalid &&PName.touched" required minlength="4" class="form-control" name="Name" [(ngModel)]="Prd.Name" id="Pname">
+  </div>
+
+
+  <div class="form-group">
+    <label for="">Details</label>
+    <input type="text" [(ngModel)]="Prd.Description" class="form-control" name="PrdDetails" required minlength="4">
+    <small id="emailHelpId" class="form-text text-muted">Help text</small>
+  </div>
+
+  <div class="form-group">
+    <label for="">Price</label>
+    <input type="number" [(ngModel)]="Prd.Price" class="form-control" name="PrdPrice" required min="1">
+    <small id="emailHelpId" class="form-text text-muted">Help text</small>
+  </div>
+
+  <div class="form-group">
+    <label for="">Quntaity</label>
+    <input type="number" [(ngModel)]="Prd.Quantity" class="form-control" name="PrdQuantity" required min="1">
+    <small id="emailHelpId" class="form-text text-muted">Help text</small>
+  </div>
+  <!-- <div class="form-group">
+    <label for="">image</label>
+    <img [src]="imageurl"  style="width: 250px; height: 250px;">
+    <input type="file"   (change)="handlefileinput($event.target.files)" name="image" id="image" class="form-control" placeholder="" aria-describedby="helpId">
+    <small id="helpId" class="text-muted">Help text</small>
+  </div> -->
+
+  <!-- <div class="form-group">
+      <label for=""> Image</label>
+      <input type="file"  class="form-control" placeholder="" aria-describedby="helpId ">
+      <small id="helpId" class="text-muted">Help text</small>
+    </div> -->
+  <!-- <div class="form-group">
+       <label for="">Category</label>
+       <input type="number"   [(ngModel)]="Prd.cat_id" class="form-control" name="PrdCatID" required min="1" >
+       <small id="emailHelpId" class="form-text text-muted">Help text</small>
+     </div> -->
+  <button type="submit" class="btn btn-primary" [disabled]="myfrm.invalid">Submit</button>
+
+</form>

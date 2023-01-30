@@ -1,0 +1,86 @@
+
+<h1 appHighlight>Hello {{title|uppercase}}</h1>
+<h1 appHighlight>Hello {{title}}</h1>
+<div>
+    <h4> Company Captail {{cinfo.Captail|currency:'USD':true}}</h4>
+<h4> Custom Pipe Company Captail {{cinfo.Captail|usdtoegp:15}}</h4>
+    <h5> Company EstablishDate {{cinfo.EstablishDate|date:'long'}}</h5>
+
+</div>
+<h2 appHighlight > Company Name {{cinfo.Name}} </h2>
+<!-- <img src="{{cinfo.Logo}}" alt="Loading...">
+<br>
+<img [src]="cinfo.Logo" alt="Loading..."> -->
+<hr>
+<!-- One Way Binding:  <input type="text" [value]="cinfo.Name"> -->
+<br>
+two Way Binding:   <input type="text" [(ngModel)]="cinfo.Name">
+<hr>
+ <button class="btn btn-primary" (click)="Toggle()">Toggle</button>
+ <!-- [hidden]="!isServicesDisplayed" -->
+<div *ngIf="isServicesDisplayed">
+  <h3> Services </h3>
+  <ul>
+      <li *ngFor="let item of cinfo.Services">
+          {{item}}
+      </li>
+  </ul>
+</div>
+<hr>
+<table  class="table bg-dark text-white">
+    <!-- style="background-color: black;color: white;" -->
+   <thead 
+     class=" text-center">
+       <th>No.</th>
+       <th>Name</th>
+       <th>Quntatity</th>
+       <th>Price</th>
+   </thead>
+   <tbody>
+    <!-- [style.background-color]="(prod.Quntatity==0)?'orange':'yellow'"
+    [class.text-center]="(prod.Quntatity==0)" -->
+    
+    <!-- [hidden]="prod.Quntatity==0"  -->
+      <tr *ngFor="let prod of mainproducts; let i=index" 
+      [ngClass]="{'cl1':(prod.Quntatity==0),
+      'cl2':(prod.Quntatity==0)}"
+      [ngStyle]="{'background-color':(prod.Quntatity==0)?'red':'dodgerblue','color':(prod.Quntatity==0)?'white':'black'}" 
+       
+      >
+         <td>{{i+1}}</td> 
+         <td>{{prod.Name}}</td> 
+         <td>
+             <!-- <div *ngIf="prod.Quntatity==0">
+                Out of Stock
+             </div>
+             <div *ngIf="prod.Quntatity>0">
+                {{prod.Quntatity}}
+             </div> -->
+             <!-- <div *ngIf="prod.Quntatity==0;then Quntatitytrue;else Quntatityfalse">
+             </div>
+             <ng-template #Quntatitytrue >
+                 Out Of stock
+             </ng-template>
+             <ng-template #Quntatityfalse >
+                 <div>
+                    {{prod.Quntatity}} 
+                 </div>
+             </ng-template> -->
+
+
+             <div [ngSwitch]="prod.Quntatity">
+                 <div *ngSwitchCase="0"> Out of Stock</div>
+                 <div *ngSwitchCase="1"> Last Item</div>
+                 <div *ngSwitchDefault>{{prod.Quntatity}}</div>
+             </div>
+            
+            </td> 
+         <td>{{prod.Price}}</td> 
+      </tr>
+   </tbody>
+ 
+
+</table>
+<div appHighlight >
+    test Attrubit Directive 
+</div>

@@ -1,0 +1,35 @@
+<!-- 
+  {{myform.value|json}}
+  <br>
+<form [formGroup]="myform" (ngSubmit)="Login()">
+    <div class="form-group">
+      <label for="">Email</label>
+      <input type="email" class="form-control" [class.is-valid]="myform.controls['Email'].valid" 
+      [class.is-invalid]="myform.controls['Email'].invalid && myform.controls['Email'].touched"
+      formControlName="Email">
+      <div [hidden]="myform.controls['Email'].valid || myform.controls['Email'].untouched"
+      class="alert alert-danger">
+   Email is required
+ </div>
+    </div>
+    <div class="form-group">
+      <label for="">Password</label>
+      <input type="password" class="form-control" formControlName="Password">
+    </div>
+
+    <button class="btn btn-info" [disabled]="!myform.valid"  type="submit">Login</button>
+  </form>
+ -->
+ <form [formGroup]="myform">
+  <div class="form-group">
+    <label for="">Email</label>
+    <input type="email" class="form-control" [class.is-valid]="myform.controls['Email'].valid" [class.is-invalid]="myform.controls['Email'].invalid" formControlName="Email" placeholder="">
+    <small id="emailHelpId" class="form-text text-muted">Help text</small>
+  </div>
+  <div class="form-group">
+    <label for="">Password</label>
+    <input type="password" formControlName="Password"  class="form-control" placeholder="">
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+ </form>
+{{myform.value|json}}

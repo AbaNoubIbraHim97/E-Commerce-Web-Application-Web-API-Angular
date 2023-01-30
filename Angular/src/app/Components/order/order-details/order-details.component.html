@@ -1,0 +1,28 @@
+<table  class="table table-bordered">
+   <thead 
+     class="">
+       <th>ID</th>
+       <th>Name</th>
+       <th> Available Quntatity</th>
+       <th>Price</th>
+       <th> Needed Quntatity</th>
+       <th>View Details (html)</th>
+       <th> View Details (router)</th>
+       <th> Add To cart</th>
+   </thead>
+   <tbody>
+      <tr *ngFor="let prod of getProductsByCatID()">
+         <td>{{prod.ID}}</td> 
+         <td>{{prod.Name}}</td> 
+         <td>{{prod.Quntatity}}</td> 
+         <td>{{prod.Price}}</td> 
+         <td> <input #pCount type="number"></td>
+         <td> <a class="btn btn-primary" [routerLink]="['/Product',prod.ID]"> View Details</a>   </td>
+         <td> <button class="btn btn-primary" (click)="viewDetais(prod.ID)"> View Details</button> </td>
+         <td> <button class="btn btn-primary" (click)="UpdateTotalPrice(pCount.value,prod.Price)"> ADD </button> </td>
+      </tr>
+   </tbody>
+</table>
+<div>
+    Total Price In Child: {{TotalPrice}}
+</div>

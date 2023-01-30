@@ -1,0 +1,67 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+    data-whatever="@getbootstrap">Edit</button>
+
+<div #modal class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="PName">Name:</label>
+                        <input type="text" class="form-control" [(ngModel)]="prod.Name" name="Name" id="PName">
+                    </div>
+                    <div class="form-group">
+                        <label for="PPrice">Price:</label>
+                        <input type="number" class="form-control" [(ngModel)]="prod.Price" id="PPrice">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PDescription">Description:</label>
+                        <input type="text" class="form-control" [(ngModel)]="prod.Description" id="PDescription">
+                    </div>
+                    <div class="form-group">
+                        <label for="PDescription">Quantity:</label>
+                        <input type="text" class="form-control" [(ngModel)]="prod.Quantity" id="PDescription">
+                    </div>
+                </form>
+            </div>
+
+           
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" (click)="updateprod()" class=" btn btn-primary">Save Changes</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <div class="form-group">
+    <label for="PName">Name:</label>
+   <input type="text" class="form-control"  [(ngModel)]="prod.Name" name="Name" id="PName">
+   </div>
+
+   <div class="form-group">
+   <label for="PPrice">Price:</label>
+    <input type="number" class="form-control"  [(ngModel)]="prod.Price" id="PPrice"> 
+   </div>
+
+   <div class="form-group">
+    <label for="PDescription">Description:</label>
+    <input type="text" class="form-control"  [(ngModel)]="prod.Description" id="PDescription"> 
+    </div>
+    <button (click)="updateprod()" class="btn btn-primary">Save</button> -->

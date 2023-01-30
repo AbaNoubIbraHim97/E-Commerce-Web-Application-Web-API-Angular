@@ -1,0 +1,16 @@
+<div class="bg-white">
+    <h1> In Order Master </h1>
+   address  <input #addS type="text" value="Asyut">
+     <select #ctL [(ngModel)]="CatID" >
+         <option *ngFor="let cat of CatList" [value]="cat.ID" style="color: black;">{{cat.Name}}</option>
+     </select>
+     <!-- {{CatID}} -->
+    <hr>
+    <div class="bg-info">
+     <app-order-details [SelCatIDInChid]="CatID" (TotalPriceChanged)="TotalPriceInParent($event)" ></app-order-details> 
+    </div>
+     <hr>
+ 
+   
+ </div>
+ 

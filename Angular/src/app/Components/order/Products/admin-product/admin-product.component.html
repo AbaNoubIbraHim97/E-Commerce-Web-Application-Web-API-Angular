@@ -1,0 +1,35 @@
+<a class="btn btn-success" routerLink="/AddProduct">Add New Product</a>
+<br>
+<table class="table table-bordered">
+    <thead class="bg-dark text-center text-white">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th> Available Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </thead>
+    <tbody class="">
+        <tr *ngFor="let prod of PrdList; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{prod.Name}}</td>
+           <td>{{prod.Description}}</td>
+            <td>{{prod.Quantity}}</td>
+            <td>{{prod.Price |currency:'USD':true}}</td>
+            <td> <img class="card-img-top" src="http://localhost:50221/Image/{{prod.Image}}" alt="Card image cap"
+                style="width: 250px;height: 250px;"></td>
+            <td><a class="btn btn-primary w-100" [routerLink]="['/edit/',prod.ID]"> Edit</a></td>
+            <td>
+                <button class="btn btn-outline-secondary bg-danger text-white w-100" mwlConfirmationPopover [popoverTitle]="popoverTitle"
+                   [popoverMessage]="popoverMessage" placement="left" (confirm)="DeletePro(prod.ID)"
+                   (cancel)="cancelClicked = true">
+                   Delete
+                </button>
+    
+    
+             </td>
+        </tr>
+    </tbody>
+</table>

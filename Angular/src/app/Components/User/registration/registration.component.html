@@ -1,0 +1,39 @@
+<form #myfrm="ngForm" (ngSubmit)="adduser()">
+    <div class="form-group">
+        <label for="">Email</label>
+        <input type="text"   [(ngModel)]="user.Name" class="form-control" name="PrdDetails" required minlength="4" >
+        <small id="emailHelpId" class="form-text text-muted">Help text</small>
+      </div>
+   
+   
+    <div class="form-group">
+       <label for="">password</label>
+       <input type="text"   [(ngModel)]="user.Password" class="form-control" name="PrdDetails" required minlength="4" >
+       <small id="emailHelpId" class="form-text text-muted">Help text</small>
+     </div>
+   
+    <div class="form-group">
+       <label for="">confirmpassword</label>
+       <input type="number"   [(ngModel)]="user.confirmPassword" class="form-control" name="PrdPrice" required min="1" >
+       <small id="emailHelpId" class="form-text text-muted">Help text</small>
+     </div>
+     
+    <!-- <div class="form-group">
+       <label for="">Quntaity</label>
+       <input type="number"   [(ngModel)]="Prd.Quantity" class="form-control" name="PrdQuantity" required min="1" >
+       <small id="emailHelpId" class="form-text text-muted">Help text</small>
+     </div> -->
+   
+    <!-- <div class="form-group">
+      <label for=""> Image</label>
+      <input type="file"  class="form-control" placeholder="" aria-describedby="helpId ">
+      <small id="helpId" class="text-muted">Help text</small>
+    </div> -->
+    <!-- <div class="form-group">
+       <label for="">Category</label>
+       <input type="number"   [(ngModel)]="Prd.cat_id" class="form-control" name="PrdCatID" required min="1" >
+       <small id="emailHelpId" class="form-text text-muted">Help text</small>
+     </div> -->
+      <button type="submit" class="btn btn-primary" [disabled]="myfrm.invalid">Submit</button>
+   
+   </form>

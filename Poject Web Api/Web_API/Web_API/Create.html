@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Create</title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body style="padding-top:20px">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="well">
+            <!--This table contains the fields that we want to capture to register a new user-->
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="success">
+                        <th colspan="2">
+                            Create New Product
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" id="txtName" placeholder="Name" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>
+                            <input type="text" id="txtDescription"
+                                   placeholder="Description" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>
+                            <input type="text" id="txtPrice"
+                                   placeholder="Price" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                        <td>
+                            <input type="text" id="txtQuantity"
+                                   placeholder="Quantity" />
+                        </td>
+                    </tr>
+                    <tr class="success">
+                        <td colspan="2">
+                            <input id="btnCreate" class="btn btn-success"
+                                   type="button" value="Create" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--Bootstrap modal dialog that shows up when regsitration is successful-->
+            <div class="modal fade" tabindex="-1" id="successModal"
+                 data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                            <h4 class="modal-title">Success</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <h2 class="modal-title">Added Successful!</h2>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success"
+                                    data-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Bootstrap alert to display any validation errors-->
+            <div id="divError" class="alert alert-danger collapse">
+                <a id="linkClose" href="#" class="close">&times;</a>
+                <div id="divErrorText"></div>
+            </div>
+        </div>
+    </div>
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <!--<script src="Scripts/jquery-1.10.2.min.js"></script>-->
+    <!--<script src="Scripts/bootstrap.min.js"></script>-->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //Close the bootstrap alert
+            $('#linkClose').click(function () {
+                $('#divError').hide('fade');
+            });
+
+            // Save the new user details
+            $('#btnCreate').click(function () {
+                $.ajax({
+                    url: '/api/Products/PostProduct',
+                    method: 'POST',
+                    data: {
+                        Name: $('#txtName').val(),
+                        Description: $('#txtDescription').val(),
+                        Price: $('#txtPrice').val(),
+                        Quantity: $('#txtQuantity').val()
+                    },
+                    success: function () {
+                        //$('#successModal').modal('show');
+                        window.location.href = "Data.html";
+                    },
+                    error: function (jqXHR) {
+                        $('#divErrorText').text(jqXHR.responseText);
+                        $('#divError').show('fade');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

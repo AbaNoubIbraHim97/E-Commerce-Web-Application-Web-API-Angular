@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row ">
+    <div class="col-md-3">
+
+    </div>
+    
+    <div class="card col-md-6  mb-3" >
+      <div class="card-header" style="text-align: center;"><h1>Name: {{prdApi.Name}}</h1></div>
+      <div class="card-body">
+        <img class="card-img-top" src="http://localhost:50221/Image/{{prdApi.Image}}" alt="Card image cap"
+          style="width: 100%;height: 250px;">
+        <h2 class="card-title">Price:{{prdApi.Price |currency:'USD':true}}</h2>
+        <h4>Availble Quantity: {{prdApi.Quantity}}</h4>
+        <h5 class="card-text">Description:{{prdApi.Description}}</h5>
+        <!-- <input type="number" #Pcount /> -->
+        <!-- <button (click)="goBack()" class="bg-dark text-white">Go to Back </button>
+        <button class="btn btn-primary" (click)="UpdatePrice(Pcount.value,prdApi.Quantity,prdApi.ID)">AddtoCart</button> -->
+      </div>
+      <!-- <button (click)="addToCart(prdApi,Pcount.value)">Buy</button>
+      <div>{{items}}</div> -->
+    </div>
+    <div class="col-3">
+
+    </div>
+
+  </div>
+</div>
